@@ -10,7 +10,7 @@
 
 import { useState } from "react"
 
-export default function Player({initialName, symbol, onClick, ...props}){
+export default function Player({initialName, symbol, onClick, isActive,...props}){
 
   const [playerName, setPlayerName] = useState(initialName);
 
@@ -71,7 +71,7 @@ export default function Player({initialName, symbol, onClick, ...props}){
   }
 
   return (
-    <li>
+    <li className={isActive ? "active" : ""}>
       <span className="player">
         {editablePlayerName}
         <span className="player-symbol">{symbol}</span>
