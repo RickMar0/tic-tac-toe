@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import Player from './components/Player.jsx';
 import GameBoard from './components/Gameboard.jsx';
-//import Log from './components/Log.jsx';
+import Log from './components/Log.jsx';
 
 function App() {
 
@@ -44,10 +44,12 @@ function App() {
           onPlayerChange={handlePlayerChange} 
           activePlayerSymbol={activePlayer}
           turns={gameturns}
+          prevTurns={gameturns}
         />
       </div>
 
-      {/*<Log />*/} 
+      <Log turns={gameturns}/>
+      
     </main>
   )
 }
