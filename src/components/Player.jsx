@@ -52,12 +52,12 @@ export default function Player({initialName, symbol, onClick, isActive, onChange
 
 // (A2) showing input field instead of span when clicking edit button
   function handleEditClick() {
-    setIsEditing((editing)=>!editing);
-
     if(isEditing){
-    onChangeName(symbol, playerName);
+      onChangeName(symbol, playerName);
     };
+    setIsEditing(editing=>!editing);
   };
+  
 
   function handleChange(event) {
     setPlayerName(event.target.value);
@@ -67,11 +67,11 @@ export default function Player({initialName, symbol, onClick, isActive, onChange
   let buttonElement = <button onClick={handleEditClick}>Edit</button>
 
   if (isEditing) {
-    editablePlayerName = //⤵
+    editablePlayerName =
     <input type="text" placeholder={initialName} required onChange={handleChange}/>;
 
     buttonElement = 
-    <button onClick={() => setIsEditing(false)}>Save</button>;
+    <button onClick={handleEditClick}>Save</button>;
   }
 
   return (
