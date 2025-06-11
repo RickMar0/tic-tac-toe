@@ -10,7 +10,7 @@
 
 import { useState } from "react"
 
-export default function Player({initialName, symbol, onClick, isActive,...props}){
+export default function Player({initialName, symbol, onClick, isActive, onChangeName}){
 
   const [playerName, setPlayerName] = useState(initialName);
 
@@ -53,6 +53,10 @@ export default function Player({initialName, symbol, onClick, isActive,...props}
 // (A2) showing input field instead of span when clicking edit button
   function handleEditClick() {
     setIsEditing((editing)=>!editing);
+
+    if(isEditing){
+    onChangeName(symbol, playerName);
+    };
   };
 
   function handleChange(event) {
